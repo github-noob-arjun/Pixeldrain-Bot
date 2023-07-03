@@ -45,7 +45,8 @@ async def media_filter(bot, update):
             pass
         now = time.time()
         ms = await message.edit_text("Dᴏᴡɴʟᴏᴀᴅɪɴɢ Yᴏᴜʀ FIʟᴇs Tᴏ Mʏ Sᴇʀᴠᴇʀ ....")
-        media = await update.download(
+        #media = await update.download(
+        media = await Bot.download_media(
                     update, DOWNLOAD,
             progress=progress,
             progress_args=("**Uᴘʟᴏᴀᴅ Pʀᴏᴄᴇss Sᴛᴀʀᴇᴅ Wᴀɪᴛ ᴀɴᴅ Wᴀᴛᴄʜ Mᴀɢɪᴄ**\n**Iᴛs Tᴀᴋᴇ ᴛɪᴍᴇ Aᴄᴄᴏʀᴅɪɴɢ Yᴏᴜʀ Fɪʟᴇs Sɪᴢᴇ** \n\n**ᴇᴛᴀ:** ", ms, now) 
