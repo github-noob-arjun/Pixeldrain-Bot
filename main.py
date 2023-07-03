@@ -61,7 +61,8 @@ async def media_filter(bot, update):
             )
         except:
             pass
-        response = pixeldrain.upload_file(media)
+        filez = open(media, 'rb')
+        response = pixeldrain.upload_file(filez)
         
         try:
             os.remove(media)
