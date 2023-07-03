@@ -2,7 +2,9 @@ import os
 import pixeldrain
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from progress import progress
 
+DOWNLOAD = "./"
 
 Bot = Client(
     "Pixeldrain-Bot",
@@ -40,7 +42,16 @@ async def media_filter(bot, update):
             )
         except:
             pass
-        media = await update.download()
+        now = time.time()
+        ms = await message.edit_text("Dᴏᴡɴʟᴏᴀᴅɪɴɢ Yᴏᴜʀ FIʟᴇs Tᴏ Mʏ Sᴇʀᴠᴇʀ ....")
+        media = await update.download(
+                    update, DOWNLOAD,
+            progress=progress,
+            progress_args=(
+              "**Uᴘʟᴏᴀᴅ Pʀᴏᴄᴇss Sᴛᴀʀᴇᴅ Wᴀɪᴛ ᴀɴᴅ Wᴀᴛᴄʜ Mᴀɢɪᴄ**\n**Iᴛs Tᴀᴋᴇ ᴛɪᴍᴇ Aᴄᴄᴏʀᴅɪɴɢ Yᴏᴜʀ Fɪʟᴇs Sɪᴢᴇ** \n\n**ᴇᴛᴀ:** ", 
+              ms,
+              now
+        )
         logs.append("Download Successfully")
         
         # upload
